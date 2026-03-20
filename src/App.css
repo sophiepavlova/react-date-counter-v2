@@ -1,0 +1,9 @@
+.container {
+  margin-top: 50px;
+}
+.steps,
+.counts {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
