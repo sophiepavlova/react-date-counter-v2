@@ -11,7 +11,7 @@ export default function App() {
 
 function Counter() {
   const [step, setStep] = useState(1);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState('');
 
   function handleCountPlus() {
     setCount((c) => c + step);
@@ -50,7 +50,11 @@ function Counter() {
       </div>
       <div className='counts'>
         <button onClick={handleCountMinus}>-</button>
-        <p>Count: {count}</p>
+        <input
+          type='number'
+          value={count}
+          onChange={(e) => setCount(Number(e.target.value))}
+        ></input>
         <button onClick={handleCountPlus}>+</button>
       </div>
 
@@ -59,6 +63,14 @@ function Counter() {
         {count > 0 && `${count} days from today is ${formattedDate}`}
         {count < 0 && `${Math.abs(count)} days ago was ${formattedDate}`}
       </p>
+      <button
+        onClick={() => {
+          setStep(1);
+          setCount('');
+        }}
+      >
+        Reset
+      </button>
     </div>
   );
 }
